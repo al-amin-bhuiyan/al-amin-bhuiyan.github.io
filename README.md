@@ -1,69 +1,57 @@
-# Md. Shobuj — Portfolio
+# Md. Shobuj — Professional Portfolio
 
-Flutter Developer portfolio built for GitHub Pages deployment.
+Sleek, world-class developer portfolio built for GitHub Pages deployment. Features a responsive dark-mode cyber design layout, custom scroll-reveal animations, and an interactive developer terminal command-line console.
 
 ## 📁 File Structure
 
 ```
-portfolio/
 ├── index.html          ← Entry point (GitHub Pages root)
 ├── css/
 │   ├── style.css       ← Design tokens, reset, base styles
-│   ├── nav.css         ← Navigation (desktop + mobile drawer)
-│   └── sections.css    ← All section-specific styles
+│   ├── nav.css         ← Glassmorphic navigation & mobile drawer
+│   └── sections.css    ← Terminal console & section-specific styles
 ├── js/
-│   └── main.js         ← Nav scroll, reveal animations, interactions
-├── assets/             ← Add your photo here as photo.webp
+│   └── main.js         ← Interactive terminal parser, nav scroll, reveal animations
+├── assets/
+│   ├── photo.png       ← Custom cropped & enhanced professional portrait
 │   └── og-image.png    ← Social preview image (1200×630)
 └── README.md
 ```
 
 ## 🚀 Deploy to GitHub Pages
 
-1. Create a GitHub repo named exactly: `yourusername.github.io`
-2. Upload all these files keeping the folder structure intact
+1. Create a GitHub repo named exactly: `al-amin-bhuiyan.github.io`
+2. Push all these files keeping the folder structure intact
 3. Go to **Settings → Pages → Source → Deploy from branch → main → / (root)**
-4. Your site will be live at: `https://yourusername.github.io`
+4. Your site will be live at: `https://al-amin-bhuiyan.github.io`
 
-## ✏️ Customizations Before Deploying
+## 🖥️ Interactive Terminal Commands
+The landing page includes an interactive command terminal console window on desktop and tablet views. You can click inside the terminal window and type standard commands to interact with your CV data:
 
-### 1. Update URLs (in `index.html`)
-- Replace all `yourusername` with your actual GitHub username
-- Replace `your-linkedin` with your actual LinkedIn handle
-
-### 2. Add your photo
-- Add a photo as `assets/photo.webp` (recommended: 400×400px, compressed)
-- In `index.html`, replace the avatar `<div>` block with:
-```html
-<img
-  src="assets/photo.webp"
-  alt="Md. Shobuj — Flutter Developer"
-  width="200" height="200"
-  loading="lazy"
-/>
-```
-
-### 3. Add OG image
-- Create `assets/og-image.png` (1200×630px) for social sharing previews
-
-### 4. Update canonical URL
-Change the `<link rel="canonical">` tag to your actual URL.
+- `help` - List all available commands.
+- `about` - Display a quick introduction text.
+- `experience` - Show interactive professional history details.
+- `projects` - Summarize the systems and applications built.
+- `skills` - List technical skills and architectural competencies.
+- `cp` - Show competitive programming profiles and stats.
+- `contact` - Display phone number and email address links.
+- `clear` - Clear the terminal console output logs.
 
 ## ✅ Optimization Checklist
 
-- [x] Mobile-first responsive design
-- [x] Separate CSS + JS files (modular)
+- [x] Interactive Terminal Console (custom JS command-line parsing)
+- [x] Mobile-first responsive layout (collapsible responsive design)
+- [x] Separate CSS + JS files (modular structure)
 - [x] `defer` on all scripts (no render blocking)
-- [x] `loading="lazy"` on images
+- [x] `loading="lazy"` on image tags
 - [x] `preconnect` for Google Fonts
-- [x] Full SEO meta tags (OG, Twitter Card, structured data)
+- [x] Full SEO meta tags (OG tags, Twitter Card, JSON-LD structured data)
 - [x] `aria-*` attributes for accessibility
-- [x] `scroll-behavior: smooth` + polyfill for Safari
-- [x] IntersectionObserver for scroll reveal
-- [x] Cross-browser compatible CSS (vendor prefixes where needed)
+- [x] `scroll-behavior: smooth` with fallback handling
+- [x] IntersectionObserver for scroll-reveal animations
+- [x] CSS custom properties for easy variables mapping
 - [x] `rel="noopener noreferrer"` on all external links
-- [x] `scroll-padding-top` for fixed nav offset
-- [x] CSS custom properties for easy theming
+- [x] `scroll-padding-top` for fixed nav offset heights
 
-## 🖥️ Tested Browsers
+## 📱 Tested Browsers
 Chrome · Firefox · Safari · Edge · Mobile Chrome · Mobile Safari
