@@ -1,3 +1,4 @@
+
 /**
  * portfolio/js/main.js
  * Navigation, scroll reveal, interactions
@@ -171,4 +172,100 @@
   const yearEl = document.getElementById('footerYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
+  /* ── INTERACTIVE TERMINAL ── */
+  const terminalInput = document.getElementById('terminalInput');
+  const terminalOutput = document.getElementById('terminalOutput');
+  const terminalBody = document.getElementById('terminalBody');
+
+  if (terminalInput && terminalOutput && terminalBody) {
+    // Focus terminal on click anywhere inside the body
+    terminalBody.addEventListener('click', () => {
+      terminalInput.focus();
+    });
+
+    const commands = {
+      help: () => `Available commands:
+  <span class="accent-cmd">about</span>       - Quick introduction about me
+  <span class="accent-cmd">experience</span>  - Summary of my professional work history
+  <span class="accent-cmd">projects</span>    - Showcase of things I've built
+  <span class="accent-cmd">skills</span>      - My technical core expertise
+  <span class="accent-cmd">cp</span>          - Competitive programming achievements
+  <span class="accent-cmd">contact</span>     - How to get in touch
+  <span class="accent-cmd">clear</span>       - Clear the screen`,
+      about: () => `Md. Shobuj - Flutter Developer
+-----------------------------
+- Graduated from Dhaka University of Engineering & Technology (DUET) in 2025.
+- 1.5+ years of experience shipping production-ready cross-platform apps.
+- Proficient in Clean Architecture, state management, and custom integrations.`,
+      experience: () => `Work History:
+-------------
+1. <span class="accent-cmd">Spark Tech Agency</span> (Jr. Flutter Developer | Sep 2025 - Present)
+   - Built real-time Socket.IO features and payment gateways (Stripe/bKash).
+2. <span class="accent-cmd">Dilla Software Ltd</span> (Flutter Developer | Apr 2025 - Aug 2025)
+   - Engineered scalable apps with automated unit and widget testing.
+3. <span class="accent-cmd">Brain Station 23 PLC</span> (Flutter Developer Intern | Jan 2025 - Mar 2025)
+   - Built NewsApp, E-Commerce, and wellness apps using MVVM.`,
+      projects: () => `Featured Projects:
+------------------
+- <span class="accent-cmd">AI Bag Design</span>      - AI-powered custom designs using MVC.
+- <span class="accent-cmd">Fatema Mind Glow</span>  - Wellness tracking via GetX & Firebase.
+- <span class="accent-cmd">Austin Small Talk</span>  - Chat app utilizing Socket.IO.
+- <span class="accent-cmd">Mental Health App</span> - Metric charts and Firebase backend.
+Type 'projects' on my portfolio sections below for full links.`,
+      skills: () => `Technical Core Skills:
+----------------------
+- Languages:    Dart, C++, Java, Python, C
+- Mobile:       Flutter (Skia/Impeller, Render Tree lifecycle)
+- Architecture: MVVM, MVC, Clean Architecture, SOLID Principles
+- Services:     REST APIs, Firebase (Auth/Firestore), Socket.IO
+- Other:        Git/GitHub, Figma, Unit & Widget Testing`,
+      cp: () => `Competitive Programming Profiles:
+---------------------------------
+- LeetCode:    1638 Rating | 200+ solved
+- Codeforces:  1228 Rating | 850+ solved
+- CodeChef:    1603 Rating | 100+ solved
+Total Solved: 1200+ across platforms.`,
+      contact: () => `Contact Channels:
+-----------------
+- Phone:  01902042000
+- Email:  mdshobuj204111@gmail.com
+- Github: https://github.com/al-amin-bhuiyan`
+    };
+
+    terminalInput.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        const cmdText = terminalInput.value.trim().toLowerCase();
+        terminalInput.value = '';
+
+        // Print input prompt line in output
+        const cmdLine = document.createElement('div');
+        cmdLine.className = 'terminal-line';
+        cmdLine.innerHTML = `<span style="color:var(--purple); font-weight:700;">shobuj@duet:~ $</span> ${cmdText}`;
+        terminalOutput.appendChild(cmdLine);
+
+        if (cmdText) {
+          if (cmdText === 'clear') {
+            terminalOutput.innerHTML = '';
+          } else if (commands[cmdText]) {
+            const outLine = document.createElement('div');
+            outLine.className = 'terminal-line';
+            outLine.innerHTML = commands[cmdText]();
+            terminalOutput.appendChild(outLine);
+          } else {
+            const errLine = document.createElement('div');
+            errLine.className = 'terminal-line';
+            errLine.innerHTML = `bash: command not found: ${cmdText}. Type <span class="accent-cmd">'help'</span> for list of commands.`;
+            terminalOutput.appendChild(errLine);
+          }
+        }
+
+        // Scroll body to bottom
+        setTimeout(() => {
+          terminalBody.scrollTop = terminalBody.scrollHeight;
+        }, 10);
+      }
+    });
+  }
+
 })();
+

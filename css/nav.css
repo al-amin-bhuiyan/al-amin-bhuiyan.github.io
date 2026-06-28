@@ -4,7 +4,9 @@
 
 header {
   position: fixed;
-  top: 0; left: 0; right: 0;
+  top: 0;
+  left: 0;
+  right: 0;
   height: var(--nav-h);
   z-index: 1000;
 }
@@ -47,9 +49,11 @@ header {
   align-items: center;
   transition: transform var(--transition);
 }
+
 .nav-logo:hover {
   transform: scale(1.02);
 }
+
 .nav-logo span {
   color: var(--accent);
 }
@@ -60,6 +64,7 @@ header {
   align-items: center;
   gap: 2rem;
 }
+
 .nav-links a {
   font-size: 0.88rem;
   font-weight: 500;
@@ -68,25 +73,33 @@ header {
   padding: 0.5rem 0;
   transition: color var(--transition);
 }
+
 .nav-links a::after {
   content: '';
   position: absolute;
-  bottom: 0; left: 0; width: 100%; height: 2px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
   background: linear-gradient(90deg, var(--accent), var(--purple));
   transform: scaleX(0);
   transform-origin: right;
   transition: transform var(--transition);
 }
+
 .nav-links a:hover {
   color: var(--text);
 }
+
 .nav-links a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
+
 .nav-links a.active {
   color: var(--accent);
 }
+
 .nav-links a.active::after {
   transform: scaleX(1);
   background: var(--accent);
@@ -107,6 +120,7 @@ header {
   text-transform: uppercase;
   transition: all var(--transition);
 }
+
 .nav-hire:hover {
   background: var(--accent);
   border-color: var(--accent);
@@ -125,6 +139,7 @@ header {
   position: relative;
   z-index: 1001;
 }
+
 .nav-toggle span {
   display: block;
   width: 100%;
@@ -133,6 +148,7 @@ header {
   border-radius: 4px;
   transition: transform 0.3s ease, opacity 0.3s ease, background-color var(--transition);
 }
+
 .nav-toggle:hover span {
   background: var(--accent);
 }
@@ -141,9 +157,11 @@ header {
 .nav-toggle.open span:nth-child(1) {
   transform: translateY(8px) rotate(45deg);
 }
+
 .nav-toggle.open span:nth-child(2) {
   opacity: 0;
 }
+
 .nav-toggle.open span:nth-child(3) {
   transform: translateY(-8px) rotate(-45deg);
 }
@@ -151,7 +169,8 @@ header {
 /* Mobile navigation drawer */
 .nav-drawer {
   position: fixed;
-  top: 0; right: 0;
+  top: 0;
+  right: 0;
   width: 280px;
   height: 100dvh;
   background: rgba(14, 14, 26, 0.95);
@@ -178,6 +197,7 @@ header {
   color: var(--text-2);
   transition: color var(--transition), transform var(--transition);
 }
+
 .nav-drawer a:hover,
 .nav-drawer a.active {
   color: var(--accent);
@@ -186,9 +206,12 @@ header {
 
 /* Media query to show hamburger menu and drawer */
 @media (max-width: 768px) {
-  .nav-links, .nav-hire {
+
+  .nav-links,
+  .nav-hire {
     display: none;
   }
+
   .nav-toggle {
     display: flex;
   }
